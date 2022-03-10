@@ -1,5 +1,4 @@
 简易图书馆管理系统
 熟悉Django增删改查
-
-
-这是dev分支创建时做的事
+熟悉HTML,CSS,JavaScript,JQuery,BootStrap的基本使用
+熟悉Git常用操作
