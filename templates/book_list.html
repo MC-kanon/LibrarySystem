@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+    {#  图书的一个table表格  #}
+    <div>
+       <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>书名</th>
+                    <th>价格</th>
+                    <th>基本信息</th>
+                    <th>作者</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for foo in book_query %}
+                        <tr>
+                        <th>{{ forloop.counter }}</th>
+                        <th>{{ foo.title }}</th>
+                        <th>{{ foo.price }}</th>
+                        <th>{{ foo.info }}</th>
+                        <th>{% for book_author in foo.authors.all %}
+                                {{ book_author }}
+                        {% endfor %}
+                        </th>
+                        <th>
+                            <a href="/book/edit/{{ foo.id }}"><button class="btn btn-xs btn-success" style="margin-right: 3px">编辑</button></a>
+                            <a href="/book/delete/?nid={{ foo.id }}"><button class="btn btn-xs btn-danger">删除</button></a>
+                        </th>
+                        </tr>
+                    {% endfor %}
+            </tbody>
+       </table>
+    </div>
+{% endblock %}

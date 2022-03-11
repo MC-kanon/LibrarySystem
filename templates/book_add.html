@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <form action="/book/add/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="提交" class="btn btn-primary">
+    </form>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $('#f1').addClass('hidden')
+    </script>
+{% endblock %}
